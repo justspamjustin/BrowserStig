@@ -1,0 +1,16 @@
+{
+  "name": "browserstig",
+  "version": "0.1.0",
+  "description": "Browser Automation without Selenium.",
+  "keywords": [
+    "Automation",
+    "Browser Automation",
+    "Browser Testing",
+    "Browser Functional Testing"
+  ],
+  "author": "Justin Martin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/justspamjustin/BrowserStig/issues"
+  }
+}
