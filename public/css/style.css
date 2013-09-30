@@ -1,0 +1,299 @@
+/* line 9, ../../scss/lib/buttons.scss */
+.button {
+  border: solid 1px white;
+  display: inline-block;
+  padding: .5em 1em;
+  font-size: 200%;
+  text-transform: uppercase;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+/* line 18, ../../scss/lib/buttons.scss */
+.button:active {
+  background-color: white;
+  color: #50756f;
+}
+
+/* line 23, ../../scss/lib/buttons.scss */
+.button--primary {
+  background-color: white;
+  color: #50756f;
+}
+/* line 25, ../../scss/lib/buttons.scss */
+.button--primary:active {
+  background-color: transparent;
+  color: white;
+}
+
+/* line 4, ../../scss/base.scss */
+body {
+  font-family: "Open Sans";
+  font-size: 16px;
+  font-weight: 300;
+  margin: 0;
+  color: #7b7b7b;
+}
+
+/* line 12, ../../scss/base.scss */
+a {
+  text-decoration: none;
+  color: #7b7b7b;
+}
+
+/* line 17, ../../scss/base.scss */
+h1 {
+  font-weight: 300;
+  font-size: 240.62%;
+}
+
+/* line 4, ../../scss/mixins.scss */
+.inner-width {
+  width: 100%;
+  padding: 0 1em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+@media (min-width: 64em) {
+  /* line 4, ../../scss/mixins.scss */
+  .inner-width {
+    width: 66em;
+  }
+}
+
+/* line 14, ../../scss/mixins.scss */
+.margin-centered {
+  margin: auto;
+}
+
+/* line 6, ../../scss/header.scss */
+.site-header {
+  background-color: rgba(255, 255, 255, 0.8);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  color: #7b7b7b;
+  height: 5rem;
+  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+  z-index: -1;
+}
+@media (min-width: 48.1em) {
+  /* line 6, ../../scss/header.scss */
+  .site-header {
+    height: 3rem;
+  }
+}
+@media (min-width: 48.1em) {
+  /* line 6, ../../scss/header.scss */
+  .site-header {
+    z-index: 1;
+  }
+}
+
+/* line 21, ../../scss/header.scss */
+.site-header_logo {
+  width: 11.75em;
+  height: 1.25em;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: url("../img/browserstig_logo_solid.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: 1em;
+}
+@media (min-width: 48.1em) {
+  /* line 21, ../../scss/header.scss */
+  .site-header_logo {
+    display: inline-block;
+    float: left;
+    margin-left: .5rem;
+  }
+}
+
+/* line 37, ../../scss/header.scss */
+.site-header_nav {
+  display: block;
+  width: 15.8125em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -0.25em;
+  text-transform: uppercase;
+  position: relative;
+}
+@media (min-width: 48.1em) {
+  /* line 37, ../../scss/header.scss */
+  .site-header_nav {
+    width: auto;
+    margin-top: 0;
+    float: right;
+  }
+}
+
+/* line 52, ../../scss/header.scss */
+.site-header_nav-item {
+  float: left;
+  margin: 1rem .5rem;
+}
+@media (min-width: 48.1em) {
+  /* line 52, ../../scss/header.scss */
+  .site-header_nav-item {
+    margin: 1rem;
+  }
+}
+
+/* line 60, ../../scss/header.scss */
+.site-header_github-icon {
+  position: relative;
+  font-size: 125%;
+  top: -1.1rem;
+  display: inline-block;
+}
+
+/* line 14, ../../scss/hero.scss */
+.site-hero {
+  background-image: url("../img/browserstig_blurred_bg.jpg");
+  background-size: cover;
+  height: 27.3em;
+  width: 100%;
+  margin-top: 3em;
+  padding: 3em 0;
+  color: white;
+  position: relative;
+  margin-top: 5rem;
+  font-size: 36%;
+}
+@media (min-width: 48.1em) {
+  /* line 14, ../../scss/hero.scss */
+  .site-hero {
+    margin-top: 3rem;
+  }
+}
+@media (min-width: 20.1em) and (max-width: 48em) {
+  /* line 14, ../../scss/hero.scss */
+  .site-hero {
+    font-size: 70%;
+  }
+}
+@media (min-width: 48.1em) {
+  /* line 14, ../../scss/hero.scss */
+  .site-hero {
+    font-size: 100%;
+  }
+}
+
+/* line 35, ../../scss/hero.scss */
+.site-hero_logo {
+  color: white;
+  background-image: url("../img/browserstig_outline_logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 52.0625em;
+  height: 5.25em;
+}
+@media (min-width: 20.1em) and (max-width: 48em) {
+  /* line 35, ../../scss/hero.scss */
+  .site-hero_logo {
+    width: 90%;
+  }
+}
+
+/* line 48, ../../scss/hero.scss */
+.site-hero_browsers-img {
+  margin-top: 3rem;
+  width: 28em;
+  height: 5em;
+  background-image: url("../img/browsers_outline.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+@media (max-width: 20em) {
+  /* line 48, ../../scss/hero.scss */
+  .site-hero_browsers-img {
+    margin-top: 1rem;
+  }
+}
+@media (min-width: 20.1em) and (max-width: 48em) {
+  /* line 48, ../../scss/hero.scss */
+  .site-hero_browsers-img {
+    margin-top: 2rem;
+  }
+}
+@media (min-width: 20.1em) and (max-width: 48em) {
+  /* line 48, ../../scss/hero.scss */
+  .site-hero_browsers-img {
+    width: 60%;
+  }
+}
+
+/* line 61, ../../scss/hero.scss */
+.site-hero_tagline {
+  width: 19em;
+  margin-top: 3rem;
+}
+@media (min-width: 48.1em) {
+  /* line 61, ../../scss/hero.scss */
+  .site-hero_tagline {
+    width: 18.4em;
+  }
+}
+@media (max-width: 20em) {
+  /* line 61, ../../scss/hero.scss */
+  .site-hero_tagline {
+    margin-top: 1rem;
+  }
+}
+@media (min-width: 20.1em) and (max-width: 48em) {
+  /* line 61, ../../scss/hero.scss */
+  .site-hero_tagline {
+    margin-top: 2rem;
+  }
+}
+
+/* line 69, ../../scss/hero.scss */
+.site-hero_buttons {
+  text-align: center;
+  margin-top: 3rem;
+}
+@media (max-width: 20em) {
+  /* line 69, ../../scss/hero.scss */
+  .site-hero_buttons {
+    margin-top: 1rem;
+  }
+}
+@media (min-width: 20.1em) and (max-width: 48em) {
+  /* line 69, ../../scss/hero.scss */
+  .site-hero_buttons {
+    margin-top: 2rem;
+  }
+}
+
+/* line 74, ../../scss/hero.scss */
+.site-hero_install-button {
+  margin-left: 2em;
+}
+@media (max-width: 20em) {
+  /* line 74, ../../scss/hero.scss */
+  .site-hero_install-button {
+    margin-left: 1em;
+  }
+}
+@media (min-width: 20.1em) and (max-width: 48em) {
+  /* line 74, ../../scss/hero.scss */
+  .site-hero_install-button {
+    margin-left: .2em;
+  }
+}

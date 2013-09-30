@@ -1,0 +1,37 @@
+/*
+  Icon Font: fontcustom
+*/
+
+@font-face {
+  font-family: "fontcustom";
+  src: url("../fonts/fontcustom_0eda7b37b5fe81ff9b0a8bb9c9b71a66.eot");
+  src: url("../fonts/fontcustom_0eda7b37b5fe81ff9b0a8bb9c9b71a66.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/fontcustom_0eda7b37b5fe81ff9b0a8bb9c9b71a66.woff") format("woff"),
+       url("../fonts/fontcustom_0eda7b37b5fe81ff9b0a8bb9c9b71a66.ttf") format("truetype"),
+       url("../fonts/fontcustom_0eda7b37b5fe81ff9b0a8bb9c9b71a66.svg#fontcustom") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[data-icon]:before { content: attr(data-icon); }
+
+[data-icon]:before,
+.icon-browsers_outline:before,
+.icon-browserstig_filled_logo:before,
+.icon-browserstig_outline_logo:before,
+.icon-github:before {
+  font-family: "fontcustom";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  text-decoration: inherit;
+}
+
+.icon-browsers_outline:before { content: "\f100"; }
+.icon-browserstig_filled_logo:before { content: "\f101"; }
+.icon-browserstig_outline_logo:before { content: "\f102"; }
+.icon-github:before { content: "\f103"; }

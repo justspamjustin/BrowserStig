@@ -1,0 +1,16 @@
+$header-top-expanded: 5rem;
+$header-top-compact: 3rem;
+
+@mixin header-top-height {
+  height: $header-top-expanded;
+  @include size-large {
+    height: $header-top-compact;
+  }
+}
+
+@mixin header-top-margin {
+  margin-top: $header-top-expanded;
+  @include size-large {
+    margin-top: $header-top-compact;
+  }
+}

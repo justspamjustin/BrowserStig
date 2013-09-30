@@ -1,0 +1,65 @@
+@import "compass/css3";
+@import "lib/colors";
+@import "lib/media";
+@import "header-top";
+
+.site-header {
+  background-color: $transparent-white;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  color: $grey;
+  @include header-top-height;
+  @include box-shadow(0 0 5px 0 rgba(0, 0, 0, .3));
+  z-index: -1;
+  @include size-large {
+    z-index: 1;
+  }
+}
+
+.site-header_logo {
+  width: 11.75em;
+  height: 1.25em;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: url('../img/browserstig_logo_solid.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: 1em;
+  @include size-large {
+    display: inline-block;
+    float: left;
+    margin-left: .5rem;
+  }
+}
+
+.site-header_nav {
+  display: block;
+  width: 15.8125em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -.25em;
+  text-transform: uppercase;
+  position: relative;
+  @include size-large {
+    width: auto;
+    margin-top: 0;
+    float: right;
+  }
+}
+
+.site-header_nav-item {
+  float: left;
+  margin: 1rem .5rem;
+  @include size-large {
+    margin: 1rem;
+  }
+}
+
+.site-header_github-icon {
+  position: relative;
+  font-size: 125%;
+  top: -1.1rem;
+  display: inline-block;
+}

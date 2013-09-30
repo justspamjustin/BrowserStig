@@ -1,0 +1,29 @@
+@import "compass/css3";
+@import "colors";
+
+@mixin invert-button {
+  background-color: $white;
+  color: $aqua;
+}
+
+.button {
+  border: solid 1px $white;
+  display: inline-block;
+  padding: .5em 1em;
+  font-size: 200%;
+  text-transform: uppercase;
+  @include border-radius(4px);
+  @include experimental(user-select, none);
+  cursor: pointer;
+  &:active {
+    @include invert-button;
+  }
+}
+
+.button--primary {
+  @include invert-button;
+  &:active {
+    background-color: transparent;
+    color: $white;
+  }
+}

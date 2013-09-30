@@ -1,0 +1,56 @@
+
+
+@mixin iphone-portrait {
+  @media  (max-width: 20em) {
+    @content;
+  }
+}
+
+@mixin iphone-landscape {
+  @media  (min-width: 20em) and (max-width: 30em) {
+    @content;
+  }
+}
+
+@mixin iphone5-landscape {
+  @media  (min-width: 30em) and (max-width: 35em) {
+    @content;
+  }
+}
+
+@mixin ipad-portrait {
+  @media  (min-width: 30em) and (max-width: 48em) {
+    @content;
+  }
+}
+
+@mixin ipad-landscape {
+  @media  (min-width: 48em) and (max-width: 64em) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media  (min-width: 64em) {
+    @content;
+  }
+}
+
+@mixin size-small {
+  @media  (max-width: 20em) {
+    @content;
+  }
+}
+
+@mixin size-medium {
+  @media  (min-width: 20.1em) and (max-width: 48em) {
+    @content;
+  }
+}
+
+@mixin size-large {
+  @media  (min-width: 48.1em) {
+    @content;
+  }
+}
+

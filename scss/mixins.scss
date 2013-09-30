@@ -1,0 +1,16 @@
+@import "compass/css3";
+@import "lib/media";
+
+.inner-width {
+  width: 100%;
+  padding: 0 1em;
+  @include box-sizing(border-box);
+
+  @include desktop {
+    width: 66em;
+  }
+}
+
+.margin-centered {
+  margin: auto;
+}

@@ -1,0 +1,83 @@
+@import "header-top";
+@import "lib/media";
+
+@mixin space-between {
+  margin-top: 3rem;
+  @include size-small {
+    margin-top: 1rem;
+  }
+  @include size-medium {
+    margin-top: 2rem;
+  }
+}
+
+.site-hero {
+  background-image: url('../img/browserstig_blurred_bg.jpg');
+  background-size: cover;
+  height: 27.3em;
+  width: 100%;
+  margin-top: 3em;
+  padding: 3em 0;
+  color: $white;
+  position: relative;
+  @include header-top-margin;
+  font-size: 36%;
+
+  @include size-medium {
+    font-size: 70%;
+  }
+
+  @include size-large {
+    font-size: 100%;
+  }
+}
+
+.site-hero_logo {
+  color: $white;
+  background-image: url('../img/browserstig_outline_logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 52.0625em;
+  height: 5.25em;
+  @include size-medium {
+    width: 90%;
+  }
+}
+
+.site-hero_browsers-img {
+  @include space-between;
+  width: 28em;
+  height: 5em;
+  background-image: url('../img/browsers_outline.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  @include size-medium {
+    width: 60%;
+  }
+}
+
+.site-hero_tagline {
+  width: 19em;
+  @include size-large {
+    width: 18.4em;
+  }
+  @include space-between;
+}
+
+.site-hero_buttons {
+  text-align: center;
+  @include space-between;
+}
+
+.site-hero_install-button {
+  margin-left: 2em;
+  @include size-small {
+    margin-left: 1em;
+  }
+  @include size-medium {
+    margin-left: .2em;
+  }
+}
+
