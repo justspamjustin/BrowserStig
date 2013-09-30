@@ -2,3 +2,5 @@
 *.iml
 .sass-cache
 .fontcustom-data
+node_modules
+bookmarklet.js

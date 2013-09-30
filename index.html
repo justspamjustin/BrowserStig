@@ -44,7 +44,9 @@
           <div class="try-now_bookmarklet-tooltip hidden">
             Drag and drop the button to your bookmarklet toolbar.
           </div>
-          <a href="javascript:alert('hi');" class="try-now_bookmarklet-button button button--boring" draggable="true"><span class="hidden">&#x2713; BROWSER STIG</span></a>
+          <a href="javascript:(function(){;var%20numDependencies=0,loadedDependencies=0;numDependencies+=2;var%20scriptUrls=%5B%22//justspamjustin.github.io/BrowserStig/public/js/vendor/underscore.js%22,%22//justspamjustin.github.io/BrowserStig/public/js/vendor/browserstig.js%22%5D;var%20scriptIds=%5B%22underscore%22,%22browserstig%22%5D;for(var%20i=0;i%3CscriptUrls.length;i++)%7Bvar%20url=scriptUrls%5Bi%5D;var%20script=document.createElement(%22script%22);script.src=url+%22?t=%22+Date.now();script.id=scriptIds%5Bi%5D;script.type=%22text/javascript%22;script.onload=scriptLoaded;document.body.appendChild(script)%7Dfunction%20scriptLoaded()%7BloadedDependencies++;if(numDependencies===loadedDependencies)%7BafterDepsLoaded()%7D%7Dfunction%20afterDepsLoaded()%7Bvar%20tweetText=%22Check%20it%20out!%20I%20just%20tweeted%20using%20#BrowserStig.Developer%20Friendly%20browser%20automation!%20http://justspamjustin.github.io/browserstig%20#browserautomation%22;var%20stig=new%20BrowserStig;stig.open(%22/%22);stig.el(%22#global-new-tweet-button%22).click();stig.el(%22#tweet-box-global%22).type(tweetText);stig.el(%22.tweet-action:visible%22).click();stig.run()%7DafterDepsLoaded();})()" class="try-now_bookmarklet-button button button--boring" draggable="true">
+            <span class="hidden">&#x2713; BROWSER STIG</span>
+          </a>
         </div>
       </li>
       <li class="try-now_instruction-item">In a new browser tab, log in to <a class="green-link" href="http://twitter.com"><strong>twitter.com</strong></a>.</li>
