@@ -1,0 +1,39 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<!--
+2013-9-30: Created.
+-->
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>
+Created by FontForge 20120731 at Mon Sep 30 16:13:49 2013
+ By Justin
+Created by Justin with FontForge 2.0 (http://fontforge.sf.net)
+</metadata>
+<defs>
+<font id="fontcustom" horiz-adv-x="320" >
+  <font-face 
+    font-family="fontcustom"
+    font-weight="500"
+    font-stretch="normal"
+    units-per-em="512"
+    panose-1="2 0 6 3 0 0 0 0 0 0"
+    ascent="448"
+    descent="-64"
+    bbox="-0.407809 -64 512 448"
+    underline-thickness="25.6"
+    underline-position="-51.2"
+    unicode-range="U+F100-F102"
+  />
+    <missing-glyph />
+    <glyph glyph-name="uniF100" unicode="&#xf100;" 
+d="M315 -26c-3 -2 -224 -2 -229 0c-6 2 -6 -6 -6 143v135l-33 1c-31 0 -33 0 -37 2c-8 4 -13 17 -9 25c1 2 25 31 53 65c37 45 53 62 56 64c5 3 13 4 19 1c3 -1 14 -14 55 -63c28 -34 52 -63 53 -65c4 -5 3 -14 -1 -20c-6 -9 -5 -9 -43 -9l-33 -1v-100v-100h51
+c47 0 52 1 54 -1c3 -2 53 -62 54 -65c2 -4 0 -10 -4 -12z" />
+    <glyph glyph-name="uniF101" unicode="&#xf101;" 
+d="M0 448h320v-512l-160 160l-160 -160v512z" />
+    <glyph glyph-name="uniF102" unicode="&#xf102;" horiz-adv-x="512" 
+d="M0 170c0 41 14 77 42 107c-2 4 -4 9 -5 14s-2 13 -3 22s-1 20 1 32s6 25 11 38c1 0 2 1 4 1s6 0 13 -1s13 -2 21 -4s18 -7 31 -13s27 -14 41 -24c24 7 58 10 100 10c43 0 76 -3 100 -10c14 10 28 18 41 24s23 11 31 13s15 3 21 4s10 1 13 1l4 -1c5 -13 9 -26 11 -38
+s2 -23 1 -32s-2 -17 -3 -22s-3 -10 -5 -14c28 -30 42 -66 42 -107c0 -23 -3 -44 -7 -63s-10 -35 -18 -49s-17 -26 -29 -37s-25 -18 -39 -25s-30 -13 -48 -17s-35 -6 -54 -8s-40 -3 -62 -3s-42 1 -61 3s-36 4 -54 8s-34 10 -48 17s-26 14 -38 25s-21 23 -29 37s-14 30 -18 49
+s-7 40 -7 63zM63 107c0 -14 1 -27 5 -38s8 -20 14 -28s13 -14 23 -19s20 -9 29 -12s22 -5 37 -7s27 -3 39 -3h44h45s24 1 39 3s27 4 36 7s19 7 29 12s18 11 24 19s10 17 14 28s5 24 5 38c0 24 -11 46 -33 66c-7 6 -14 11 -23 14s-18 5 -29 5s-22 1 -32 0s-22 -2 -37 -3
+s-27 -1 -38 -1s-23 0 -38 1s-27 2 -37 3s-20 0 -31 0s-21 -2 -30 -5s-15 -8 -22 -14c-22 -20 -33 -42 -33 -66zM320 112c0 26 14 48 32 48s32 -22 32 -48s-14 -48 -32 -48s-32 22 -32 48zM128 112c0 26 14 48 32 48s32 -22 32 -48s-14 -48 -32 -48s-32 22 -32 48z" />
+  </font>
+</defs></svg>
