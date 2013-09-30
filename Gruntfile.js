@@ -4,11 +4,11 @@ module.exports = function(grunt) {
   grunt.initConfig({
     bookmarklet: {
       generate: {
-        js: ['//justspamjustin.github.io/BrowserStig/public/js/vendor/underscore.js','//justspamjustin.github.io/BrowserStig/public/js/vendor/browserstig.js'],
-        jsIds: ['underscore','browserstig'],
+        js: ['//justspamjustin.github.io/BrowserStig/public/js/vendor/browserstig.js'],
+        css: [],
+        jsIds: ['browserstig'],
         body: 'twitter-example.js',
-        out: 'bookmarklet.js',
-        timestamp: true
+        out: 'bookmarklet.js'
       }
     }
   });

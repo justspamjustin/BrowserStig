@@ -9,7 +9,7 @@ var BrowserStig =
     'height:100%',
     'border:none'
   ];
-  var iframeTemplate = _.template('<iframe id="stig-frame" name="stig-frame" src="<%= initialUrl %>" style="<%= frameStyles %>"/>');
+  var iframeTemplate = '<iframe id="stig-frame" name="stig-frame" src="<%= initialUrl %>" style="<%= frameStyles %>"/>';
 
   var defaultOptions = {
     waitForElementTimeout: 10000,
@@ -17,12 +17,48 @@ var BrowserStig =
     frameStyles: frameStyles
   };
 
+  var breaker = {};
+
+  var Util = {
+    extend: function(obj) {
+      this.each(Array.prototype.slice.call(arguments, 1), function(source) {
+        if (source) {
+          for (var prop in source) {
+            obj[prop] = source[prop];
+          }
+        }
+      });
+      return obj;
+    },
+    each: function(obj, iterator, context) {
+      if (obj == null) return;
+      if (Array.prototype.forEach && obj.forEach === Array.prototype.forEach) {
+        obj.forEach(iterator, context);
+      } else if (obj.length === +obj.length) {
+        for (var i = 0, length = obj.length; i < length; i++) {
+          if (iterator.call(context, obj[i], i, obj) === breaker) return;
+        }
+      } else {
+        var keys = this.keys(obj);
+        for (var i = 0, length = keys.length; i < length; i++) {
+          if (iterator.call(context, obj[keys[i]], keys[i], obj) === breaker) return;
+        }
+      }
+    },
+    keys: Object.keys || function(obj) {
+      if (obj !== Object(obj)) throw new TypeError('Invalid object');
+      var keys = [];
+      for (var key in obj) if (obj.hasOwnProperty(key)) keys.push(key);
+      return keys;
+    },
+    argsToArray: function (argumentsObject) {
+      return Array.prototype.slice.call(argumentsObject, 0);
+    }
+  };
+
   var BrowserStig = function (options) {
-    this.options = _.extend({}, defaultOptions, options);
-    document.body.innerHTML = iframeTemplate({
-      initialUrl: this.options.initialUrl,
-      frameStyles: this.options.frameStyles.join(';')
-    });
+    this.options = Util.extend({}, defaultOptions, options);
+    document.body.innerHTML = iframeTemplate.replace('<%= initialUrl %>', this.options.initialUrl).replace('<%= frameStyles %>', this.options.frameStyles.join(';'));
     this.selectedElement = null;
     this.steps = [];
     this._buildImmediateActions();
@@ -31,11 +67,11 @@ var BrowserStig =
   BrowserStig.prototype = {
 
     open: function () {
-      this._addStep('open', _.toArray(arguments));
+      this._addStep('open', Util.argsToArray(arguments));
     },
 
     setCookie: function () {
-      this._addStep('setCookie', _.toArray(arguments));
+      this._addStep('setCookie', Util.argsToArray(arguments));
     },
 
     el: function (elementSelector) {
@@ -75,9 +111,9 @@ var BrowserStig =
       },
       setCookie: function (cssSelector, cookieList, done) {
         var _this = this;
-        _.delay(function () {
+        setTimeout(function () {
           var cookies = cookieList.split(';');
-          _(cookies).each(function (cookie) {
+          Util.each(cookies, function (cookie) {
             _this.getFrame().get(0).contentDocument.cookie = cookie;
           });
           done();
@@ -161,9 +197,9 @@ var BrowserStig =
     _buildImmediateActions: function () {
       var immediateActions = {};
       var _this = this;
-      _(_.keys(this.actions)).each(function (key) {
+      Util.each(Util.keys(this.actions), function (key) {
         immediateActions[key] = function () {
-          return _this._addStep(key, _.toArray(arguments));
+          return _this._addStep(key, Util.argsToArray(arguments));
         };
       });
 
@@ -219,7 +255,7 @@ var BrowserStig =
           var intervalTime = 50;
           timeLeft -= intervalTime;
           var _this = this;
-          _.delay(function () {
+          setTimeout(function () {
             _this._waitForElementRecursive(cssSelector, timeLeft, done);
           }, intervalTime);
         }
