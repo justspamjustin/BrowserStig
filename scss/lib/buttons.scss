@@ -27,3 +27,13 @@
     color: $white;
   }
 }
+
+.button--boring {
+  border: solid 1px $grey;
+  background-color: $grey;
+  color: $white;
+  &:active {
+    background-color: $white;
+    color: $grey;
+  }
+}

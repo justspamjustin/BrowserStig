@@ -1,3 +1,4 @@
+@import "compass/css3";
 @import "lib/colors";
 @import "lib/buttons";
 
@@ -7,14 +8,27 @@ body {
   font-weight: 300;
   margin: 0;
   color: $grey;
+  @include experimental(font-smoothing, antialiased);
 }
 
 a {
   text-decoration: none;
   color: $grey;
+
 }
 
 h1 {
+  margin: 0;
   font-weight: 300;
   font-size: 240.62%;
+  margin-bottom: .25em;
+}
+
+h2 {
+  margin: 0;
+  margin-bottom: .5em;
+  font-weight: 300;
+  &:before {
+    content: "> ";
+  }
 }

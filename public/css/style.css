@@ -34,25 +34,55 @@
   color: white;
 }
 
-/* line 4, ../../scss/base.scss */
+/* line 31, ../../scss/lib/buttons.scss */
+.button--boring {
+  border: solid 1px #7b7b7b;
+  background-color: #7b7b7b;
+  color: white;
+}
+/* line 35, ../../scss/lib/buttons.scss */
+.button--boring:active {
+  background-color: white;
+  color: #7b7b7b;
+}
+
+/* line 5, ../../scss/base.scss */
 body {
   font-family: "Open Sans";
   font-size: 16px;
   font-weight: 300;
   margin: 0;
   color: #7b7b7b;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
 }
 
-/* line 12, ../../scss/base.scss */
+/* line 14, ../../scss/base.scss */
 a {
   text-decoration: none;
   color: #7b7b7b;
 }
 
-/* line 17, ../../scss/base.scss */
+/* line 20, ../../scss/base.scss */
 h1 {
+  margin: 0;
   font-weight: 300;
   font-size: 240.62%;
+  margin-bottom: .25em;
+}
+
+/* line 27, ../../scss/base.scss */
+h2 {
+  margin: 0;
+  margin-bottom: .5em;
+  font-weight: 300;
+}
+/* line 31, ../../scss/base.scss */
+h2:before {
+  content: "> ";
 }
 
 /* line 4, ../../scss/mixins.scss */
@@ -70,9 +100,24 @@ h1 {
   }
 }
 
-/* line 14, ../../scss/mixins.scss */
+/* line 15, ../../scss/mixins.scss */
+.padded-section {
+  padding: 3rem 0;
+}
+
+/* line 19, ../../scss/mixins.scss */
 .margin-centered {
   margin: auto;
+}
+
+/* line 23, ../../scss/mixins.scss */
+.hidden {
+  display: none;
+}
+
+/* line 27, ../../scss/mixins.scss */
+.green-link {
+  color: #50756f;
 }
 
 /* line 6, ../../scss/header.scss */
@@ -157,7 +202,7 @@ h1 {
 .site-header_github-icon {
   position: relative;
   font-size: 125%;
-  top: -1.1rem;
+  top: -0.2rem;
   display: inline-block;
 }
 
@@ -296,4 +341,139 @@ h1 {
   .site-hero_install-button {
     margin-left: .2em;
   }
+}
+
+/* line 4, ../../scss/trynow.scss */
+.try-now {
+  background-color: #e6e6e6;
+}
+
+/* line 8, ../../scss/trynow.scss */
+.try-now_post-to-twitter-code {
+  overflow: hidden;
+  width: 41em;
+  height: 12.75em;
+  -webkit-transform-origin: 0 0 0 50%;
+  -moz-transform-origin: 0 0 0 50%;
+  -ms-transform-origin: 0 0 0 50%;
+  -o-transform-origin: 0 0 0 50%;
+  transform-origin: 0 0 0 50%;
+  border-bottom: solid 1px #DDDDDD;
+}
+@media (max-width: 20em) {
+  /* line 8, ../../scss/trynow.scss */
+  .try-now_post-to-twitter-code {
+    -webkit-transform: scale(0.65);
+    -moz-transform: scale(0.65);
+    -ms-transform: scale(0.65);
+    -o-transform: scale(0.65);
+    transform: scale(0.65);
+    width: 27em;
+  }
+}
+
+/* line 20, ../../scss/trynow.scss */
+.try-now_instructions {
+  font-size: 140%;
+}
+
+/* line 24, ../../scss/trynow.scss */
+.try-now_instruction-item {
+  margin-bottom: 1rem;
+}
+
+/* line 30, ../../scss/trynow.scss */
+.try-now_bookmarklet-button {
+  margin: .5rem 0;
+  font-size: 120%;
+  width: 14rem;
+  text-align: center;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: -ms-grab;
+  cursor: -o-grab;
+  cursor: grab;
+}
+/* line 35, ../../scss/trynow.scss */
+.try-now_bookmarklet-button:before {
+  content: '\f101';
+  display: inline-block;
+  font-family: "fontcustom";
+  display: inline-block;
+  margin-right: .4rem;
+}
+/* line 42, ../../scss/trynow.scss */
+.try-now_bookmarklet-button:after {
+  content: 'Bookmarklet';
+  display: inline-block;
+}
+/* line 47, ../../scss/trynow.scss */
+.try-now_bookmarklet-button:active:before {
+  content: '\f100';
+}
+/* line 50, ../../scss/trynow.scss */
+.try-now_bookmarklet-button:active:after {
+  content: 'Drag me!';
+}
+
+/* line 57, ../../scss/trynow.scss */
+.try-now_bookmarklet-container {
+  width: 14rem;
+}
+/* line 60, ../../scss/trynow.scss */
+.try-now_bookmarklet-container:hover .try-now_bookmarklet-tooltip {
+  display: block;
+}
+
+/* line 66, ../../scss/trynow.scss */
+.try-now_bookmarklet-tooltip {
+  position: fixed;
+  top: 1rem;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 2;
+  background-color: white;
+  font-size: 130%;
+  width: 18rem;
+  padding: 1rem .5rem;
+  text-align: center;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  border: solid 1px rgba(123, 123, 123, 0.5);
+}
+/* line 80, ../../scss/trynow.scss */
+.try-now_bookmarklet-tooltip:before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 1rem solid transparent;
+  border-right: 1rem solid transparent;
+  border-bottom: 1rem solid rgba(123, 123, 123, 0.5);
+  display: block;
+  position: absolute;
+  top: -1rem;
+}
+/* line 91, ../../scss/trynow.scss */
+.try-now_bookmarklet-tooltip:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 1rem solid transparent;
+  border-right: 1rem solid transparent;
+  border-bottom: 1rem solid white;
+  display: block;
+  position: absolute;
+  top: -0.95rem;
+}
+
+/* line 104, ../../scss/trynow.scss */
+.try-now_example-bookmark {
+  font-size: 90%;
+  margin-top: .25em;
+  padding: .25em .5em;
+  cursor: default;
 }
