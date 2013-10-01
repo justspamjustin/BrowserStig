@@ -343,6 +343,11 @@ h2:before {
   }
 }
 
+/* line 84, ../../scss/hero.scss */
+.site-hero_try-button {
+  color: white;
+}
+
 /* line 4, ../../scss/trynow.scss */
 .try-now {
   background-color: #e6e6e6;
