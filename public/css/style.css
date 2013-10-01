@@ -1,4 +1,4 @@
-/* line 9, ../../scss/lib/buttons.scss */
+/* line 9, /Users/corda/projects/BrowserStig/scss/lib/buttons.scss */
 .button {
   border: solid 1px white;
   display: inline-block;
@@ -17,30 +17,30 @@
   user-select: none;
   cursor: pointer;
 }
-/* line 18, ../../scss/lib/buttons.scss */
+/* line 18, /Users/corda/projects/BrowserStig/scss/lib/buttons.scss */
 .button:active {
   background-color: white;
   color: #50756f;
 }
 
-/* line 23, ../../scss/lib/buttons.scss */
+/* line 23, /Users/corda/projects/BrowserStig/scss/lib/buttons.scss */
 .button--primary {
   background-color: white;
   color: #50756f;
 }
-/* line 25, ../../scss/lib/buttons.scss */
+/* line 25, /Users/corda/projects/BrowserStig/scss/lib/buttons.scss */
 .button--primary:active {
   background-color: transparent;
   color: white;
 }
 
-/* line 31, ../../scss/lib/buttons.scss */
+/* line 31, /Users/corda/projects/BrowserStig/scss/lib/buttons.scss */
 .button--boring {
   border: solid 1px #7b7b7b;
   background-color: #7b7b7b;
   color: white;
 }
-/* line 35, ../../scss/lib/buttons.scss */
+/* line 35, /Users/corda/projects/BrowserStig/scss/lib/buttons.scss */
 .button--boring:active {
   background-color: white;
   color: #7b7b7b;
@@ -58,15 +58,16 @@ body {
   -ms-font-smoothing: antialiased;
   -o-font-smoothing: antialiased;
   font-smoothing: antialiased;
+  background-color: #7b7b7b;
 }
 
-/* line 14, ../../scss/base.scss */
+/* line 15, ../../scss/base.scss */
 a {
   text-decoration: none;
   color: #7b7b7b;
 }
 
-/* line 20, ../../scss/base.scss */
+/* line 21, ../../scss/base.scss */
 h1 {
   margin: 0;
   font-weight: 300;
@@ -74,13 +75,13 @@ h1 {
   margin-bottom: .25em;
 }
 
-/* line 27, ../../scss/base.scss */
+/* line 28, ../../scss/base.scss */
 h2 {
   margin: 0;
   margin-bottom: .5em;
   font-weight: 300;
 }
-/* line 31, ../../scss/base.scss */
+/* line 32, ../../scss/base.scss */
 h2:before {
   content: "> ";
 }
@@ -483,9 +484,19 @@ h2:before {
   cursor: default;
 }
 
-/* line 1, ../../scss/installdocs.scss */
+/* line 3, ../../scss/installdocs.scss */
+.install {
+  background-color: white;
+}
+
+/* line 7, ../../scss/installdocs.scss */
 .install > .padded-section {
-  padding-bottom: 0;
+  padding-bottom: .25em;
+}
+
+/* line 11, ../../scss/installdocs.scss */
+.docs {
+  background-color: white;
 }
 
 /* line 3, ../../scss/footer.scss */
@@ -500,7 +511,7 @@ h2:before {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  width: 20em;
+  width: 18em;
   height: 4em;
   float: left;
   margin-left: 1em;

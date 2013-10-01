@@ -9,6 +9,7 @@ body {
   margin: 0;
   color: $grey;
   @include experimental(font-smoothing, antialiased);
+  background-color: $grey;
 }
 
 a {

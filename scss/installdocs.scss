@@ -1,3 +1,13 @@
+@import "lib/colors";
+
+.install {
+  background-color: $white;
+}
+
 .install > .padded-section {
-  padding-bottom: 0;
+  padding-bottom: .25em;
+}
+
+.docs {
+  background-color: $white;
 }
