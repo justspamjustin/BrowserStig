@@ -1,0 +1,22 @@
+@import "lib/colors";
+
+.site-footer {
+  height: 4em;
+  background-color: $grey;
+}
+
+.site-footer_logo {
+  background-image: url('../img/browserstig_outline_logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 20em;
+  height: 4em;
+  float: left;
+  margin-left: 1em;
+}
+
+.site-footer_social-media-btns {
+  float: right;
+  margin-top: 1.5em;
+}

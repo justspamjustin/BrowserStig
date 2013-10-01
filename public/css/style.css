@@ -482,3 +482,32 @@ h2:before {
   padding: .25em .5em;
   cursor: default;
 }
+
+/* line 1, ../../scss/installdocs.scss */
+.install > .padded-section {
+  padding-bottom: 0;
+}
+
+/* line 3, ../../scss/footer.scss */
+.site-footer {
+  height: 4em;
+  background-color: #7b7b7b;
+}
+
+/* line 8, ../../scss/footer.scss */
+.site-footer_logo {
+  background-image: url("../img/browserstig_outline_logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 20em;
+  height: 4em;
+  float: left;
+  margin-left: 1em;
+}
+
+/* line 19, ../../scss/footer.scss */
+.site-footer_social-media-btns {
+  float: right;
+  margin-top: 1.5em;
+}
