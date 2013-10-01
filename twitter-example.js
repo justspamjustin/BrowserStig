@@ -1,4 +1,4 @@
-var tweetText = 'Check it out! I just tweeted using #BrowserStig.\
+var tweetText = 'Check it out! I just tweeted using #BrowserStig. \
 Developer Friendly browser automation! \
 http://justspamjustin.github.io/browserstig #browserautomation';
 

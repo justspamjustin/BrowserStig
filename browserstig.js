@@ -147,10 +147,10 @@ var BrowserStig =
       type: function (cssSelector, value, done) {
         var _this = this;
         this._waitForElement(cssSelector, function () {
+          var $el = _this._getInFrame(cssSelector);
           cssSelector = escape(cssSelector);
           value = escape(value);
           _this._execInFrame('$(unescape("' + cssSelector + '")).focus();');
-          var $el = _this._getInFrame(cssSelector);
           if ($el.attr('contenteditable') && $el.attr('contenteditable') !== 'false') {
             _this._execInFrame('$(unescape("' + cssSelector + '")).text(unescape("' + value + '"));');
           } else {

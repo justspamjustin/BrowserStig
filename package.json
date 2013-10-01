@@ -15,7 +15,6 @@
   },
   "devDependencies": {
     "bookmarkletify": "0.0.1",
-    "grunt": "~0.4.1",
-    "grunt-bookmarklet-thingy": "~0.2.0"
+    "grunt": "~0.4.1"
   }
 }
