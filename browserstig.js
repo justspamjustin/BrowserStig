@@ -1,5 +1,7 @@
-/*jslint multistr: true, unused: false */
-/*global _:true, document:true, escape:true, $:true */
+/**
+ * https://github.com/justspamjustin/BrowserStig
+ * BrowserStig v 0.1.0
+ */
 
 var BrowserStig =
 (function () {

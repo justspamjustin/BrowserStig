@@ -1,0 +1,41 @@
+#!/usr/bin/env node
+var colors = require('colors');
+var path = require('path');
+var fs = require('fs');
+var argv = require('optimist').argv;
+
+var printHelpMessage = function () {
+  var helpMessage = [
+    'usage: browserstig [command] [options]',
+    '  commands:',
+    '    no command - run the tests with the settings in browserstig.conf.js',
+    '    init - initialize a default browserstig.conf.js',
+    '  options:',
+    '    -h or --help - show this help message',
+    '    --browser [Browser Name] - override the browser in browserstig.conf.js',
+    '    --automatedUrl [url] - override the automated url in browserstig.conf.js'
+  ].join('\n');
+  console.log(helpMessage.cyan);
+};
+
+var runInit = function () {
+  var config = fs.readFileSync('default.browserstig.conf.js');
+  fs.writeFileSync('browserstig.conf.js', config);
+  console.log('[Success] Created browserstig.conf.js.');
+};
+
+var runBrowserStig = function () {
+  require(path.join(dir, 'server')).start({configFile: '../../../karma.conf.js'});
+};
+
+
+var dir = path.resolve(process.cwd(), 'node_modules', 'karma', 'lib');
+
+var cli = require(path.join(dir, 'cli'));
+if (argv.h || argv.help) {
+  printHelpMessage();
+} else if (argv._.length > 0 && argv._[0] === 'init') {
+  runInit();
+} else {
+  runBrowserStig();
+}
