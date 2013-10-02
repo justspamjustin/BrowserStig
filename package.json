@@ -1,6 +1,6 @@
 {
   "name": "browserstig",
-  "version": "0.1.2",
+  "version": "0.1.0",
   "description": "Browser Automation without Selenium.",
   "keywords": [
     "Automation",
