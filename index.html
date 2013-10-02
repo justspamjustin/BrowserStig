@@ -84,6 +84,142 @@
       </li>
     </ol>
     </p>
+    <h2>Config</h2>
+    <p>BrowserStig requires a browserstig.conf.js to be in the same directory that you run the "stig" CLI.  The following options are supported:</p>
+    <ul>
+      <li><strong>browser</strong>: Specifies which browser to automate. Options include: 'Chrome', 'ChromeCanary', 'Firefox', 'Opera', 'Safari', 'PhantomJS' or 'IE' (Windows only).</li>
+      <li><strong>automatedUrl</strong>: This is the url/server that you will automate with browserstig.</li>
+      <li><strong>basePath</strong>: This is the path where your files are resolved from.</li>
+      <li><strong>main</strong>: This is either a js or a coffee file that will be loaded into the browser before other files.</li>
+      <li><strong>files</strong>: This is an array of js or coffee files that will run after the main file. Pattern matching is supported. ie. tests/*Test.js.</li>
+      <li><strong>exclude</strong>: This is an array of js or coffee files to be excluded from your list of files.</li>
+      <li><strong>framework</strong>: The test runner to load into the browser. Options are 'mocha', 'jasmine', or 'qunit'.</li>
+      <li><strong>reporters</strong>: An array of test reporters to specify how the tests should be reported. Options are 'dots', 'progress', 'junit', or 'growl'.</li>
+    </ul>
+    <h2>BrowserStig API</h2>
+    <p>
+      browserstig.js is automatically included in the BrowserStig automation environment.  This gives you access to the BrowserStig global in any of your js or coffee files that you include.   However, you could also include browserstig.js standalone in any project.
+    <ul>
+      <li>
+        <strong>constructor</strong>: You initialize BrowserStig using the new operator:
+        <br>
+        <p class="code">
+          var stig = new BrowserStig();
+        </p>
+        <br>
+        You can also initialize a BrowserStig object with options:
+        <p class="code">
+          var stig = new BrowserStig({<br>
+          &nbsp;&nbsp;initialUrl: '/someurl', // defaults to '/'<br>
+          &nbsp;&nbsp;waitForElementTimeout: 30000 // The length of time (ms) to search for an element before timeout<br>
+          });<br>
+        </p>
+      </li>
+      <li>
+        <strong>open</strong>: Opens a url in the browserstig automation environment. The url must be relative to the automatedUrl in the browserstig.conf.js:
+        <br>
+        <p class="code">
+          stig.open('/search');
+        </p>
+      </li>
+      <li>
+        <strong>run</strong>: Runs all of the queued actions and operations on elements.  <strong>IMPORTANT!</strong> No actions will happen unless you call run last:
+        <br>
+        <p class="code">
+          stig.open('/search');<br>
+          stig.el('#searchbox').type('Dockers Jeans');<br>
+          stig.el('#go-button').click();<br>
+          stig.el('.search-result:first').text( function(text) {<br>
+          &nbsp;&nbsp;assert(text.indexOf('Skinny Jeans') !== -1);<br>
+          });<br>
+          stig.run();<br>
+        </p>
+        <br>
+        The run function also accepts a callback for when all of the actions have been completed:
+        <br>
+        <p class="code">
+          ...<br>
+          stig.run( function() {<br>
+          &nbsp;&nbsp;console.log('I'm done!');<br>
+          });<br>
+        </p>
+      </li>
+      <li>
+        <strong>setCookie</strong>: Sets the cookie in the browserstig automation environment.:
+        <br>
+        <p class="code">
+          stig.setCookie('authtoken=j43JasHlsa');
+        </p>
+      </li>
+      <li>
+        <strong>el</strong>: Selects an element in the BrowserStig automation environment.  You can pass it a jquery css selector string.:
+        <br>
+        <p class="code">
+          stig.el('#button').click();
+        </p>
+      </li>
+      <li>
+        <strong>el.click</strong>: Click the selected element (refer to above example).
+      </li>
+      <li>
+        <strong>el.type</strong>: Types the string into the selected input (or contenteditable) element:
+        <br>
+        <p class="code">
+          stig.el('#search').type('Books by J.K. Rowling');
+        </p>
+      </li>
+      <li>
+        <strong>el.typeKey</strong>: Types the key into the selected input (or contenteditable) element.  Keys are specified using the keyCodes enum on the BrowserStig object:
+        <br>
+        <p class="code">
+          stig.el('#search').type(BrowserStig.keyCodes.ENTER);
+        </p>
+      </li>
+      <li>
+        <strong>el.hover</strong>: Hover over the selected element:
+        <br>
+        <p class="code">
+          stig.el('.dropdown').hover();
+        </p>
+      </li>
+      <li>
+        <strong>el.value</strong>: Get the value of the selected input element.  The value is returned in a callback function.:
+        <br>
+        <p class="code">
+          stig.el('#input').value( function(value) {<br>
+          &nbsp;&nbsp;assert(value === 'The text I entered');<br>
+          });
+        </p>
+      </li>
+      <li>
+        <strong>el.count</strong>: Returns the number of elements that match the selector.  The count is returned in a callback function:
+        <br>
+        <p class="code">
+          stig.el('li').count( function(count) {<br>
+          &nbsp;&nbsp;assert(count > 10);<br>
+          });
+        </p>
+      </li>
+      <li>
+        <strong>el.text</strong>: Returns the inner text of the selected element.  The text is returned in a callback function:
+        <br>
+        <p class="code">
+          stig.el('title').text( function(text) {<br>
+          &nbsp;&nbsp;assert(text.indexOf('Amazon') !== -1);<br>
+          });
+        </p>
+      </li>
+      <li>
+        <strong>el.get</strong>: Returns the jquery element from the given selector.  The element is returned in a callback function:
+        <br>
+        <p class="code">
+          stig.el('.content').get( function(el) {<br>
+          &nbsp;&nbsp;assert(el.html().indexOf('title') !== -1);<br>
+          });
+        </p>
+      </li>
+    </ul>
+    </p>
   </div>
 </div>
 <footer class="site-footer">

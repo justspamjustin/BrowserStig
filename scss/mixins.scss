@@ -12,7 +12,6 @@
   }
 }
 
-
 .padded-section {
   padding: 3rem 0;
 }
@@ -35,6 +34,8 @@
   padding: .25rem .5rem;
   @include border-radius(4px);
   display: inline-block;
+  font-family: monospace;
+  margin-top: .5em;
 }
 
 .terminal-arrow {
