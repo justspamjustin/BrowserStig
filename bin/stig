@@ -6,7 +6,7 @@ var argv = require('optimist').argv;
 
 var printHelpMessage = function () {
   var helpMessage = [
-    'usage: browserstig [command] [options]',
+    'usage: stig [command] [options]',
     '  commands:',
     '    no command - run the tests with the settings in browserstig.conf.js',
     '    init - initialize a default browserstig.conf.js',

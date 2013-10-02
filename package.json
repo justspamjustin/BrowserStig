@@ -1,6 +1,6 @@
 {
   "name": "browserstig",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Browser Automation without Selenium.",
   "keywords": [
     "Automation",
@@ -29,7 +29,21 @@
     "colors": "0.6.2",
     "optimist": "0.6.0"
   },
+  "dependencies": {
+    "karma-script-launcher": "0.1.0",
+    "karma-chrome-launcher": "0.1.0",
+    "karma-firefox-launcher": "0.1.0",
+    "karma-html2js-preprocessor": "0.1.0",
+    "karma-jasmine": "0.1.3",
+    "karma-requirejs": "0.1.0",
+    "karma-coffee-preprocessor": "0.1.0",
+    "karma-phantomjs-launcher": "0.1.0",
+    "karma": "0.10.2",
+    "underscore": "1.5.2",
+    "colors": "0.6.2",
+    "optimist": "0.6.0"
+  },
   "bin": {
-    "browserstig": "./bin/browserstig"
+    "stig": "./bin/stig"
   }
 }
