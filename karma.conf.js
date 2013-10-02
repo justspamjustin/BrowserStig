@@ -5,7 +5,7 @@ var colors = require('colors');
 var _ = require('underscore');
 var argv = require('optimist');
 
-var stigConfigPath = './browserstig.conf.js';
+var stigConfigPath = process.cwd() + '/browserstig.conf.js';
 
 var defaultStigConfig = {
   basePath: '',
