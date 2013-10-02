@@ -5,7 +5,7 @@ var colors = require('colors');
 var _ = require('underscore');
 var argv = require('optimist');
 
-var stigConfigPath = 'browserstig.conf.js';
+var stigConfigPath = './browserstig.conf.js';
 
 var defaultStigConfig = {
   basePath: '',
@@ -20,7 +20,7 @@ var defaultStigConfig = {
 
 var stigConfig = {};
 if (fs.existsSync(stigConfigPath)) {
-  stigConfig = fs.readFileSync(stigConfigPath);
+  stigConfig = require(stigConfigPath);
   stigConfig = _.extend({}, defaultStigConfig, stigConfig);
 } else {
   console.error(('[Error] ' + stigConfigPath + ' does not exist.  Run "browserstig init" to create your configuration.').yellow);
