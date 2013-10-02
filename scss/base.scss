@@ -27,9 +27,13 @@ h1 {
 
 h2 {
   margin: 0;
-  margin-bottom: .5em;
+  margin-bottom: .1em;
   font-weight: 300;
-  &:before {
-    content: "> ";
-  }
+  font-size: 180%;
+  margin-left: .5em;
+}
+
+p {
+  margin: .2em 0;
+  margin-left: 1em;
 }

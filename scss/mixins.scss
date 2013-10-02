@@ -1,5 +1,6 @@
 @import "compass/css3";
 @import "lib/media";
+@import "lib/colors";
 
 .inner-width {
   width: 100%;
@@ -26,4 +27,18 @@
 
 .green-link {
   color: $aqua;
+}
+
+.code {
+  border: solid 1px $grey;
+  background-color: $light-grey;
+  padding: .25rem .5rem;
+  @include border-radius(4px);
+  display: inline-block;
+}
+
+.terminal-arrow {
+  &:before {
+    content: "> ";
+  }
 }

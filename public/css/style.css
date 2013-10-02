@@ -1,4 +1,4 @@
-/* line 9, /Users/corda/projects/BrowserStig/scss/lib/buttons.scss */
+/* line 9, ../../scss/lib/buttons.scss */
 .button {
   border: solid 1px white;
   display: inline-block;
@@ -17,30 +17,30 @@
   user-select: none;
   cursor: pointer;
 }
-/* line 18, /Users/corda/projects/BrowserStig/scss/lib/buttons.scss */
+/* line 18, ../../scss/lib/buttons.scss */
 .button:active {
   background-color: white;
   color: #50756f;
 }
 
-/* line 23, /Users/corda/projects/BrowserStig/scss/lib/buttons.scss */
+/* line 23, ../../scss/lib/buttons.scss */
 .button--primary {
   background-color: white;
   color: #50756f;
 }
-/* line 25, /Users/corda/projects/BrowserStig/scss/lib/buttons.scss */
+/* line 25, ../../scss/lib/buttons.scss */
 .button--primary:active {
   background-color: transparent;
   color: white;
 }
 
-/* line 31, /Users/corda/projects/BrowserStig/scss/lib/buttons.scss */
+/* line 31, ../../scss/lib/buttons.scss */
 .button--boring {
   border: solid 1px #7b7b7b;
   background-color: #7b7b7b;
   color: white;
 }
-/* line 35, /Users/corda/projects/BrowserStig/scss/lib/buttons.scss */
+/* line 35, ../../scss/lib/buttons.scss */
 .button--boring:active {
   background-color: white;
   color: #7b7b7b;
@@ -78,15 +78,19 @@ h1 {
 /* line 28, ../../scss/base.scss */
 h2 {
   margin: 0;
-  margin-bottom: .5em;
+  margin-bottom: .1em;
   font-weight: 300;
-}
-/* line 32, ../../scss/base.scss */
-h2:before {
-  content: "> ";
+  font-size: 180%;
+  margin-left: .5em;
 }
 
-/* line 4, ../../scss/mixins.scss */
+/* line 36, ../../scss/base.scss */
+p {
+  margin: .2em 0;
+  margin-left: 1em;
+}
+
+/* line 5, ../../scss/mixins.scss */
 .inner-width {
   width: 100%;
   padding: 0 1em;
@@ -95,30 +99,48 @@ h2:before {
   box-sizing: border-box;
 }
 @media (min-width: 64em) {
-  /* line 4, ../../scss/mixins.scss */
+  /* line 5, ../../scss/mixins.scss */
   .inner-width {
     width: 66em;
   }
 }
 
-/* line 15, ../../scss/mixins.scss */
+/* line 16, ../../scss/mixins.scss */
 .padded-section {
   padding: 3rem 0;
 }
 
-/* line 19, ../../scss/mixins.scss */
+/* line 20, ../../scss/mixins.scss */
 .margin-centered {
   margin: auto;
 }
 
-/* line 23, ../../scss/mixins.scss */
+/* line 24, ../../scss/mixins.scss */
 .hidden {
   display: none;
 }
 
-/* line 27, ../../scss/mixins.scss */
+/* line 28, ../../scss/mixins.scss */
 .green-link {
   color: #50756f;
+}
+
+/* line 32, ../../scss/mixins.scss */
+.code {
+  border: solid 1px #7b7b7b;
+  background-color: #e6e6e6;
+  padding: .25rem .5rem;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+/* line 41, ../../scss/mixins.scss */
+.terminal-arrow:before {
+  content: "> ";
 }
 
 /* line 6, ../../scss/header.scss */
