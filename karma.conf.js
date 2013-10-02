@@ -27,6 +27,11 @@ if (fs.existsSync(stigConfigPath)) {
   process.exit(1);
 }
 
+// correct path for files:
+stigConfig.files = _(stigConfig.files).map(function (file) {
+  return process.cwd() + '/' + file;
+});
+
 
 module.exports = function(config) {
   var files = [
@@ -34,7 +39,7 @@ module.exports = function(config) {
   ];
 
   if (stigConfig.main) {
-    files.push(stigConfig.main);
+    files.push(process.cwd() + '/' + stigConfig.main);
   }
 
   files = files.concat(stigConfig.files);
