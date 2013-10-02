@@ -21,7 +21,7 @@ var printHelpMessage = function () {
 };
 
 var runInit = function () {
-  var config = fs.readFileSync('default.browserstig.conf.js');
+  var config = fs.readFileSync(__dirname + '/default.browserstig.conf.js');
   fs.writeFileSync('browserstig.conf.js', config);
   console.log('[Success] Created browserstig.conf.js.');
 };
