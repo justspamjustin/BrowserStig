@@ -102,6 +102,17 @@ module.exports = function(config) {
 
     proxies: {
       '/': argv.automatedUrl || process.env.AUTOMATED_URL || stigConfig.automatedUrl
-    }
+    },
+
+    plugins: [
+      'karma-mocha',
+      'karma-jasmine',
+      'karma-chrome-launcher',
+      'karma-firefox-launcher',
+      'karma-junit-reporter',
+      'karma-phantomjs-launcher',
+      'karma-coffee-preprocessor',
+      'karma-script-launcher'
+    ]
   });
 };

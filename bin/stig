@@ -21,13 +21,13 @@ var printHelpMessage = function () {
 };
 
 var runInit = function () {
-  var config = fs.readFileSync(__dirname + '/default.browserstig.conf.js');
+  var config = fs.readFileSync(__dirname + '/../default.browserstig.conf.js');
   fs.writeFileSync('browserstig.conf.js', config);
   console.log('[Success] Created browserstig.conf.js.');
 };
 
 var runBrowserStig = function () {
-  require(path.join(dir, 'server')).start({configFile: '../../../karma.conf.js'});
+  require(path.join(dir, 'server')).start({configFile: __dirname + '/../karma.conf.js'});
 };
 
 var cli = require(path.join(dir, 'cli'));

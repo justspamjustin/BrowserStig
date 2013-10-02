@@ -10,6 +10,10 @@
   ],
   "author": "Justin Martin",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/justspamjustin/BrowserStig.git"
+  },
   "bugs": {
     "url": "https://github.com/justspamjustin/BrowserStig/issues"
   },
@@ -27,7 +31,10 @@
     "karma": "0.10.2",
     "underscore": "1.5.2",
     "colors": "0.6.2",
-    "optimist": "0.6.0"
+    "optimist": "0.6.0",
+    "mocha": "1.13.0",
+    "karma-mocha": "0.1.0",
+    "karma-junit-reporter": "0.1.0"
   },
   "dependencies": {
     "karma-script-launcher": "0.1.0",
@@ -41,7 +48,10 @@
     "karma": "0.10.2",
     "underscore": "1.5.2",
     "colors": "0.6.2",
-    "optimist": "0.6.0"
+    "optimist": "0.6.0",
+    "mocha": "1.13.0",
+    "karma-mocha": "0.1.0",
+    "karma-junit-reporter": "0.1.0"
   },
   "bin": {
     "stig": "./bin/stig"
