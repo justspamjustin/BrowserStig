@@ -14,10 +14,22 @@ var printHelpMessage = function () {
     '    init - initialize a default browserstig.conf.js',
     '  options:',
     '    -h or --help - show this help message',
+    '    -v or --version - show the browserstig version',
     '    --browser [Browser Name] - override the browser in browserstig.conf.js',
     '    --automatedUrl [url] - override the automated url in browserstig.conf.js'
   ].join('\n');
   console.log(helpMessage.cyan);
+};
+
+var printVersion = function () {
+  var packageJSON = fs.readFileSync(__dirname + '/../package.json').toString();
+  var packageObj = JSON.parse(packageJSON);
+  var versionMessage = [
+    ('browserstig version ' + packageObj.version).bold,
+    'http://justspamjustin.github.io/BrowserStig',
+    'Licence: MIT'
+  ].join('\n');
+  console.log(versionMessage.cyan);
 };
 
 var runInit = function () {
@@ -33,6 +45,8 @@ var runBrowserStig = function () {
 var cli = require(path.join(dir, 'cli'));
 if (argv.h || argv.help) {
   printHelpMessage();
+} else if(argv.v || argv.version) {
+  printVersion();
 } else if (argv._.length > 0 && argv._[0] === 'init') {
   runInit();
 } else {
