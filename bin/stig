@@ -4,6 +4,8 @@ var path = require('path');
 var fs = require('fs');
 var argv = require('optimist').argv;
 
+var dir = path.resolve(__dirname, '..', 'node_modules', 'karma', 'lib');
+
 var printHelpMessage = function () {
   var helpMessage = [
     'usage: stig [command] [options]',
@@ -27,9 +29,6 @@ var runInit = function () {
 var runBrowserStig = function () {
   require(path.join(dir, 'server')).start({configFile: '../../../karma.conf.js'});
 };
-
-
-var dir = path.resolve(process.cwd(), 'node_modules', 'karma', 'lib');
 
 var cli = require(path.join(dir, 'cli'));
 if (argv.h || argv.help) {
