@@ -64,6 +64,8 @@ var BrowserStig =
     this.selectedElement = null;
     this.steps = [];
     this._buildImmediateActions();
+    this._installJQueryInWindow();
+    this._installJQueryOnFrameLoad();
   };
 
   BrowserStig.prototype = {
@@ -104,28 +106,33 @@ var BrowserStig =
 
     actions: {
       open: function (className, url, done) {
-        var frame = this.getFrame();
-        frame.attr('src', url);
-        frame.load(function() {
-          frame.unbind('load');
-          done();
+        var _this = this;
+        this._waitForJQueryAvailableInWindow(function () {
+          var frame = _this.getFrame();
+          frame.attr('src', url);
+          frame.bind('load.open', function() {
+            frame.unbind('load.open');
+            done();
+          });
         });
       },
       setCookie: function (cssSelector, cookieList, done) {
         var _this = this;
-        setTimeout(function () {
-          var cookies = cookieList.split(';');
-          Util.each(cookies, function (cookie) {
-            _this.getFrame().get(0).contentDocument.cookie = cookie;
-          });
-          done();
-        }, 200);
+        this._waitForJQueryAvailableInWindow(function () {
+          setTimeout(function () {
+            var cookies = cookieList.split(';');
+            Util.each(cookies, function (cookie) {
+              _this.getFrame().get(0).contentDocument.cookie = cookie;
+            });
+            done();
+          }, 200);
+        });
       },
       click: function (cssSelector, done) {
         var _this = this;
         this._waitForElement(cssSelector, function () {
           cssSelector = escape(cssSelector);
-          _this._execInFrame('$(unescape("' + cssSelector + '")).click();');
+          _this._execInFrame('jQuery(unescape("' + cssSelector + '")).click();');
           done();
         });
       },
@@ -134,14 +141,14 @@ var BrowserStig =
         this._waitForElement(cssSelector, function () {
           cssSelector = escape(cssSelector);
           _this._execInFrame('\
-          var e = $.Event("keydown");\
+          var e = jQuery.Event("keydown");\
           e.which = ' + keyCode + ';\
           e.keyCode = ' + keyCode + ';\
-          $(unescape("' + cssSelector + '")).trigger(e);\
-          e = $.Event("keyup");\
+          jQuery(unescape("' + cssSelector + '")).trigger(e);\
+          e = jQuery.Event("keyup");\
           e.which = ' + keyCode + ';\
           e.keyCode = ' + keyCode + ';\
-          $(unescape("' + cssSelector + '")).trigger(e);\
+          jQuery(unescape("' + cssSelector + '")).trigger(e);\
         ');
           done();
         });
@@ -152,16 +159,16 @@ var BrowserStig =
           var $el = _this._getInFrame(cssSelector);
           cssSelector = escape(cssSelector);
           value = escape(value);
-          _this._execInFrame('$(unescape("' + cssSelector + '")).focus();');
+          _this._execInFrame('jQuery(unescape("' + cssSelector + '")).focus();');
           if ($el.attr('contenteditable') && $el.attr('contenteditable') !== 'false') {
-            _this._execInFrame('$(unescape("' + cssSelector + '")).text(unescape("' + value + '"));');
+            _this._execInFrame('jQuery(unescape("' + cssSelector + '")).text(unescape("' + value + '"));');
           } else {
-            _this._execInFrame('$(unescape("' + cssSelector + '")).val(unescape("' + value + '"));');
+            _this._execInFrame('jQuery(unescape("' + cssSelector + '")).val(unescape("' + value + '"));');
           }
-          _this._execInFrame('$(unescape("' + cssSelector + '")).keydown();');
-          _this._execInFrame('$(unescape("' + cssSelector + '")).keyup();');
-          _this._execInFrame('$(unescape("' + cssSelector + '")).blur();');
-          _this._execInFrame('$(unescape("' + cssSelector + '")).focusout();');
+          _this._execInFrame('jQuery(unescape("' + cssSelector + '")).keydown();');
+          _this._execInFrame('jQuery(unescape("' + cssSelector + '")).keyup();');
+          _this._execInFrame('jQuery(unescape("' + cssSelector + '")).blur();');
+          _this._execInFrame('jQuery(unescape("' + cssSelector + '")).focusout();');
           done();
         });
       },
@@ -170,7 +177,7 @@ var BrowserStig =
         this._waitForElement(cssSelector, function () {
           cssSelector = escape(cssSelector);
           value = escape(value);
-          _this._execInFrame('$(unescape("' + cssSelector + '")).val("' + value + '");');
+          _this._execInFrame('jQuery(unescape("' + cssSelector + '")).val("' + value + '");');
           done();
         });
       },
@@ -178,7 +185,7 @@ var BrowserStig =
         var _this = this;
         this._waitForElement(cssSelector, function () {
           cssSelector = escape(cssSelector);
-          _this._execInFrame('$(unescape("' + cssSelector + '")).mouseover();');
+          _this._execInFrame('jQuery(unescape("' + cssSelector + '")).mouseover();');
           done();
         });
       },
@@ -191,6 +198,13 @@ var BrowserStig =
         var _this = this;
         this._waitForElement(cssSelector, function () {
           doneCallback(_this._getInFrame(cssSelector));
+          done();
+        });
+      },
+      text: function (cssSelector, doneCallback, done) {
+        var _this = this;
+        this._waitForElement(cssSelector, function () {
+          doneCallback(_this._getInFrame(cssSelector).text());
           done();
         });
       }
@@ -211,7 +225,7 @@ var BrowserStig =
     // Util
 
     getFrame: function () {
-      return $('#stig-frame');
+      return jQuery('#stig-frame');
     },
 
     _execInFrame: function (scriptStr) {
@@ -246,24 +260,77 @@ var BrowserStig =
     },
 
     _waitForElement: function (cssSelector, done) {
-      this._waitForElementRecursive(cssSelector, this.options.waitForElementTimeout, done);
+      var _this = this;
+      this._waitForJQueryAvailable(function () {
+        _this._waitForCondition(function () {
+          return _this._doesElementExist(cssSelector);
+        }, 'Timeout while waiting for element: ' + cssSelector,  done);
+      });
+
     },
 
-    _waitForElementRecursive: function (cssSelector, timeLeft, done) {
+    _installJQueryInWindow: function () {
+      var script = document.createElement('script');
+      script.src = '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js';
+      document.body.appendChild(script);
+    },
+
+    _installJQueryInFrame: function () {
+      var frameDocument = this.getFrame().get(0).contentDocument;
+      var script = frameDocument.createElement('script');
+      script.src = '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js';
+      frameDocument.body.appendChild(script);
+    },
+
+    _waitForJQueryAvailable: function (done) {
+      var _this = this;
+      this._waitForJQueryAvailableInWindow(function () {
+        _this._waitForJQueryAvailableInFrame(done);
+      });
+    },
+
+    _waitForJQueryAvailableInWindow: function (done) {
+      this._waitForCondition(function () {
+        return window.hasOwnProperty('jQuery');
+      }, 'Timeout waiting for Window JQuery', done);
+    },
+
+    _waitForJQueryAvailableInFrame: function (done) {
+      var _this = this;
+      this._waitForCondition(function () {
+        return _this.getFrame().get(0).contentWindow.hasOwnProperty('jQuery');
+      }, 'Timeout while waiting for Frame Jquery', done);
+    },
+
+    _waitForCondition: function (conditionFn, timeoutMessage, done) {
+      this._waitForConditionRecursive(conditionFn, timeoutMessage, this.options.waitForElementTimeout, done);
+    },
+
+    _waitForConditionRecursive: function (conditionFn, timeoutMessage, timeLeft, done) {
       if (timeLeft > 0) {
-        if (this._doesElementExist(cssSelector)) {
+        if (conditionFn()) {
           done();
         } else {
           var intervalTime = 50;
           timeLeft -= intervalTime;
           var _this = this;
           setTimeout(function () {
-            _this._waitForElementRecursive(cssSelector, timeLeft, done);
+            _this._waitForConditionRecursive(conditionFn, timeoutMessage, timeLeft, done);
           }, intervalTime);
         }
       } else {
-        throw new Error('Timeout while waiting for element: ' + cssSelector);
+        throw new Error(timeoutMessage);
       }
+    },
+
+    _installJQueryOnFrameLoad: function () {
+      var _this = this;
+      this._waitForJQueryAvailableInWindow(function () {
+        var frame = _this.getFrame();
+        frame.bind('load', function () {
+          _this._installJQueryInFrame();
+        });
+      });
     }
   };
 

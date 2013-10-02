@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BrowserStig - Test Page</title>
+</head>
+<body>
+<input type="text" id="input"/>
+<button id="button">Go</button>
+<div id="content"></div>
+<button id="navigate" onclick="window.location = '/public/testpage/navigate/';">Try Navigating to a different page</button>
+<script type="text/javascript">
+  var input = document.getElementById('input');
+  var content = document.getElementById('content');
+  var button = document.getElementById('button');
+  button.onclick = function () {
+    content.innerHTML = input.value;
+  };
+</script>
+</body>
+</html>

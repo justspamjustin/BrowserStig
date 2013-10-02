@@ -35,7 +35,8 @@ stigConfig.files = _(stigConfig.files).map(function (file) {
 
 module.exports = function(config) {
   var files = [
-    __dirname + '/BrowserStig.js'
+    __dirname + '/BrowserStig.js',
+    __dirname + '/karmasetup/sizesetup.coffee'
   ];
 
   if (stigConfig.main) {
