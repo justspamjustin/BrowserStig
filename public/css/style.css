@@ -46,7 +46,7 @@
   color: #7b7b7b;
 }
 
-/* line 5, ../../scss/base.scss */
+/* line 6, ../../scss/base.scss */
 body {
   font-family: "Open Sans";
   font-size: 16px;
@@ -61,21 +61,27 @@ body {
   background-color: #7b7b7b;
 }
 
-/* line 15, ../../scss/base.scss */
+/* line 16, ../../scss/base.scss */
 a {
   text-decoration: none;
   color: #7b7b7b;
 }
 
-/* line 21, ../../scss/base.scss */
+/* line 22, ../../scss/base.scss */
 h1 {
   margin: 0;
   font-weight: 300;
   font-size: 240.62%;
   margin-bottom: .25em;
 }
+@media (max-width: 20em) {
+  /* line 22, ../../scss/base.scss */
+  h1 {
+    margin-left: 1rem;
+  }
+}
 
-/* line 28, ../../scss/base.scss */
+/* line 32, ../../scss/base.scss */
 h2 {
   margin: 0;
   margin-bottom: .1em;
@@ -84,12 +90,12 @@ h2 {
   margin-left: .5em;
 }
 
-/* line 36, ../../scss/base.scss */
+/* line 40, ../../scss/base.scss */
 h3 {
   margin-left: 1rem;
 }
 
-/* line 40, ../../scss/base.scss */
+/* line 44, ../../scss/base.scss */
 p {
   margin: .2em 0;
   margin-left: 1em;
@@ -145,8 +151,17 @@ p {
   font-family: monospace;
   margin-top: .5em;
 }
+@media (max-width: 20em) {
+  /* line 31, ../../scss/mixins.scss */
+  .code {
+    font-size: 60%;
+    word-wrap: break-word;
+    max-width: 15rem;
+    overflow: auto;
+  }
+}
 
-/* line 42, ../../scss/mixins.scss */
+/* line 48, ../../scss/mixins.scss */
 .terminal-arrow:before {
   content: "> ";
 }

@@ -1,6 +1,7 @@
 @import "compass/css3";
 @import "lib/colors";
 @import "lib/buttons";
+@import "lib/media";
 
 body {
   font-family: "Open Sans";
@@ -23,6 +24,9 @@ h1 {
   font-weight: 300;
   font-size: 240.62%;
   margin-bottom: .25em;
+  @include size-small {
+    margin-left: 1rem;
+  }
 }
 
 h2 {

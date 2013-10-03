@@ -36,6 +36,12 @@
   display: inline-block;
   font-family: monospace;
   margin-top: .5em;
+  @include size-small {
+    font-size: 60%;
+    word-wrap: break-word;
+    max-width: 15rem;
+    overflow: auto;
+  }
 }
 
 .terminal-arrow {
