@@ -220,6 +220,73 @@
       </li>
     </ul>
     </p>
+    <h2>Functional Testing with BrowserStig</h2>
+    <p>
+      <p>Although BrowserStig may be used for other automation purposes, it's main purpose is to be used for
+         functional testing.  As mentioned before, you can import browserstig.js into any javascript testing framework.
+         However, the stig cli is designed to help you start testing immediately with minimal setup.
+      </p>
+      <p>
+         If you have used the <a href="http://karma-runner.github.io">karma test runner</a>, you will be familiar with the stig cli.
+         Really, the stig cli, just wraps the karma test runner.  The supported test styles are 'mocha', 'jasmine'
+         and 'qunit'.  However, this documentation only covers testing with mocha.
+      </p>
+      <h3>main.js</h3>
+      <p>
+        After running "stig init", your project will be initialized with a browserstig.conf.js and a main.js file.
+        main.js is the first file that will be loaded into the browser.
+        In this file we setup mocha to give a much longer timeout for tests.  This is because functional tests usually
+        take much longer to run than your typical unit test:
+        <p class="code">mocha.setup({timeout: 30000});</p>
+        <br>
+        <p>We also setup a "stig" global to be initialized
+                before each test:</p>
+        <p class="code">
+          beforeEach(function ()<br>
+          &nbsp;&nbsp;stig = new BrowserStig();<br>
+          });
+        </p>
+        <p>
+          We can now use the "stig" global in any of our tests.  The following test is included in main.js by default:
+        </p>
+        <p class="code">
+          describe('Amazon Test', function () {<br>
+          <br>
+          &nbsp;&nbsp;it('should get a result from the search', function (done) {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;stig.open('/');<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;stig.el('#twotabsearchtextbox').type('node.js');<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;stig.el('.nav-submit-input').click();<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;stig.el('.newaps:first .lrg.bold').text(function (text) {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('First Result: ' + text);<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assert(text.length > 0);<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;});<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;stig.run(done);<br>
+          &nbsp;&nbsp;});<br>
+          <br>
+          });
+        </p>
+        <p>
+          The most important thing to notice is that the test uses the asynchronous features of mocha.  This is why
+          the test function accepts a "done" callback that gets passed to the stig.run function.  This tells mocha to
+          wait for the test to finish all the way before moving on to run the next one.
+        </p>
+        <p>
+          This test is included directly in the main.js file, but it is best to distribute your tests in multiple files.
+          This can be easily accomplished by setting the files property in your browserstig.conf.js.  For example, if
+          you wanted to run all of the tests in all of the js files beneath the "tests" directory of your project:
+          <p class="code">
+          ... <br>
+            files: [ 'tests/**/*.js' ], <br>
+          ... <br>
+          </p>
+        </p>
+        <h3>Example Project</h3>
+        <p>
+          Here is a pre-configured <a class="green-link" href="https://github.com/justspamjustin/browserstig-example"><strong>sample project</strong></a>
+          that you may want to use to help you get started.
+        </p>
+      </p>
+    </p>
   </div>
 </div>
 <footer class="site-footer">

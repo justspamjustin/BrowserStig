@@ -85,9 +85,15 @@ h2 {
 }
 
 /* line 36, ../../scss/base.scss */
+h3 {
+  margin-left: 1rem;
+}
+
+/* line 40, ../../scss/base.scss */
 p {
   margin: .2em 0;
   margin-left: 1em;
+  max-width: 40rem;
 }
 
 /* line 5, ../../scss/mixins.scss */
