@@ -10,7 +10,7 @@ if ($('.account-summary.account-summary-small').length < 1) {
 
 var tweetText = 'Check it out! I just tweeted using #BrowserStig. \
 Developer Friendly browser automation! \
-http://justspamjustin.github.io/browserstig #browserautomation';
+http://justspamjustin.github.io/BrowserStig #browserautomation';
 
 var stig = new BrowserStig();
 stig.open('/');
