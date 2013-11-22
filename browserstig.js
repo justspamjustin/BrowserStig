@@ -1,6 +1,6 @@
 /**
  * https://github.com/justspamjustin/BrowserStig
- * BrowserStig v 0.1.0
+ * BrowserStig v 0.1.1
  */
 
 var BrowserStig =
@@ -74,6 +74,10 @@ var BrowserStig =
       this._addStep('open', Util.argsToArray(arguments));
     },
 
+    wait: function () {
+      this._addStep('wait', Util.argsToArray(arguments));
+    },
+
     setCookie: function () {
       this._addStep('setCookie', Util.argsToArray(arguments));
     },
@@ -115,6 +119,11 @@ var BrowserStig =
             done();
           });
         });
+      },
+      wait: function (cssSelector, millis, done) {
+        setTimeout(function () {
+          done();
+        }, millis);
       },
       setCookie: function (cssSelector, cookieList, done) {
         var _this = this;
